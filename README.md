@@ -43,5 +43,7 @@ Pelanggan menekan tombol "Bayar Sekarang" pada pesanan tersebut, melihat instruk
 Proses Validasi & Operasional (Oleh Admin)
 Admin melihat pesanan di tab "Menunggu". Admin memverifikasi dana dan menekan tombol Jalankan. Status pesanan berubah menjadi Berjalan dan masuk ke tab Berjalan.  
 Penyelesaian Transaksi (Oleh Admin)
-Ketika pelanggan mengembalikan mobil, Admin menekan tombol Mobil Dikembalikan (Selesai) pada pesanan terkait di tab "Berjalan".   Pemantauan Laporan (Oleh Pimpinan)
+Ketika pelanggan mengembalikan mobil, 
+Admin menekan tombol Mobil Dikembalikan (Selesai) pada pesanan terkait di tab "Berjalan".   
+Pemantauan Laporan (Oleh Pimpinan)
 Pesanan yang telah diselesaikan oleh Admin akan otomatis masuk ke perhitungan akumulasi pendapatan dan daftar riwayat pada layar Dashboard Analitik milik Pimpinan. 
