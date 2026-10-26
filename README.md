@@ -12,7 +12,8 @@ Manajemen Media: Memanfaatkan package image_picker untuk memilih dan mengunggah 
 
 Penyimpanan Lokal: Menggunakan shared_preferences untuk manajemen sesi (session) pengguna.   
 
-Fitur Utama Berdasarkan Role1. Pelanggan (Customer)Katalog Kendaraan: Melihat daftar armada yang statusnya tersedia dilengkapi dengan foto, merk, plat nomor, dan harga sewa per hari.  
+Fitur Utama Berdasarkan Role
+1. Pelanggan (Customer)Katalog Kendaraan: Melihat daftar armada yang statusnya tersedia dilengkapi dengan foto, merk, plat nomor, dan harga sewa per hari.  
 
 Sistem Booking: Memilih tanggal sewa dan tanggal kembali melalui kalender bawaan, di mana aplikasi akan mengkalkulasi total tagihan secara otomatis.   
 
