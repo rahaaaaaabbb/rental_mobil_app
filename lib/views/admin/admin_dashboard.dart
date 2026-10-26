@@ -13,12 +13,12 @@ class AdminDashboard extends StatefulWidget {
   _AdminDashboardState createState() => _AdminDashboardState();
 }
 
-// Perbaikan: Menambahkan <AdminDashboard> yang sebelumnya hilang
+
 class _AdminDashboardState extends State<AdminDashboard>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
-  // Perbaikan: Menambahkan <List<Transaksi>> yang sebelumnya menjadi 'Future>'
+ 
   late Future<List<Transaksi>> _futureTransaksi;
 
   @override
@@ -35,7 +35,6 @@ class _AdminDashboardState extends State<AdminDashboard>
   }
 
   void _prosesValidasi(int? idPembayaran, String status) async {
-    // Karena PHP wajib meminta id_pembayaran, kita cegah error jika data kosong
     if (idPembayaran == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -54,9 +53,9 @@ class _AdminDashboardState extends State<AdminDashboard>
 
     var response = await RentalService.validasiPembayaran(idPembayaran, status);
 
-    // ignore: use_build_context_synchronously
+
     if (!mounted) return;
-    Navigator.pop(context); // Tutup loading
+    Navigator.pop(context);
 
     if (response['status'] == 'success') {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -65,7 +64,7 @@ class _AdminDashboardState extends State<AdminDashboard>
           backgroundColor: Colors.green,
         ),
       );
-      _muatData(); // Refresh data pelacakan
+      _muatData();
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -90,13 +89,11 @@ class _AdminDashboardState extends State<AdminDashboard>
             fontWeight: FontWeight.bold,
           ),
         ),
-        // Tambahkan blok actions ini:
         actions: [
           IconButton(
             icon: const Icon(Icons.logout, color: Colors.red),
             tooltip: 'Logout',
             onPressed: () {
-              // Fungsi untuk menghapus riwayat halaman dan kembali ke Login
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(builder: (context) => const LoginScreen()),
@@ -105,7 +102,6 @@ class _AdminDashboardState extends State<AdminDashboard>
             },
           ),
         ],
-        // ... (kode bottom: TabBar tetap sama)
         bottom: TabBar(
           controller: _tabController,
           labelColor: const Color.fromARGB(255, 28, 73, 35),
@@ -118,7 +114,6 @@ class _AdminDashboardState extends State<AdminDashboard>
           ],
         ),
       ),
-      // Perbaikan: Menambahkan <List<Transaksi>>
       body: FutureBuilder<List<Transaksi>>(
         future: _futureTransaksi,
         builder: (context, snapshot) {
@@ -130,7 +125,6 @@ class _AdminDashboardState extends State<AdminDashboard>
             return const Center(child: Text("Belum ada data transaksi."));
           }
 
-          // Perbaikan: Mengembalikan <Transaksi> yang terhapus
           List<Transaksi> semuaTransaksi = snapshot.data!;
 
           List<Transaksi> listMenunggu = semuaTransaksi
@@ -159,10 +153,8 @@ class _AdminDashboardState extends State<AdminDashboard>
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFF2B2E4A),
-        // Menggunakan icon plus (tambah) standar
         child: const Icon(Icons.add, color: Colors.white),
         onPressed: () {
-          // Navigasi ke Halaman Tambah Kendaraan Baru
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -174,7 +166,6 @@ class _AdminDashboardState extends State<AdminDashboard>
     );
   }
 
-  // Perbaikan: Mengembalikan <Transaksi> pada parameter list
   Widget _buildListTransaksi(
     List<Transaksi> list, {
     bool isMenunggu = false,
@@ -246,8 +237,6 @@ class _AdminDashboardState extends State<AdminDashboard>
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-
-                // Tombol aksi untuk Tab "Menunggu"
                 if (isMenunggu &&
                     trx.statusPesanan == 'Dibayar' &&
                     trx.idPembayaran != null) ...[
@@ -285,7 +274,6 @@ class _AdminDashboardState extends State<AdminDashboard>
                     ],
                   ),
                 ],
-                // Tombol aksi untuk Tab "Berjalan"
                 if (isBerjalan) ...[
                   const SizedBox(height: 16),
                   SizedBox(
@@ -295,7 +283,6 @@ class _AdminDashboardState extends State<AdminDashboard>
                         backgroundColor: const Color(0xFF2B2E4A),
                       ),
                       onPressed: () async {
-                        // Tampilkan loading
                         showDialog(
                           context: context,
                           barrierDismissible: false,
@@ -303,16 +290,12 @@ class _AdminDashboardState extends State<AdminDashboard>
                               const Center(child: CircularProgressIndicator()),
                         );
 
-                        // Panggil API selesaikan pesanan
                         var response = await RentalService.selesaikanPesanan(
                           trx.idTransaksi,
                         );
-
-                        // ignore: use_build_context_synchronously
-                        Navigator.pop(context); // Tutup loading
-
+                        Navigator.pop(context);
                         if (response['status'] == 'success') {
-                          _muatData(); // Refresh layar
+                          _muatData();
                         }
                       },
                       child: const Text("Mobil Dikembalikan (Selesai)"),

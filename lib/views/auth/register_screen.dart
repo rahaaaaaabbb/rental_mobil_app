@@ -19,7 +19,6 @@ class _RegisterScreenState extends State {
   void _prosesRegistrasi() async {
     setState(() => _isLoading = true);
     
-    // Ubah tulisan 'var' menjadi 'Map<String, dynamic>'
     Map<String, dynamic> response = await AuthService.register(
       _namaController.text,
       _emailController.text,
@@ -34,7 +33,7 @@ class _RegisterScreenState extends State {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(response['message']), backgroundColor: Colors.green),
       );
-      Navigator.pop(context); // Kembali ke halaman Login setelah sukses
+      Navigator.pop(context); 
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(response['message']), backgroundColor: Colors.red),

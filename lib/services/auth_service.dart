@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  // Sesuaikan dengan alamat server lokal Anda (127.0.0.1 untuk Chrome)
   static const String baseUrl = 'http://127.0.0.1/rental_api/api';
 
   // Fungsi Login

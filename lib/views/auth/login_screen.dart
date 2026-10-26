@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../services/auth_service.dart';
 import 'register_screen.dart';
 import '../pelanggan/home_screen.dart';
-import '../admin/admin_dashboard.dart'; // Tambahkan baris ini
+import '../admin/admin_dashboard.dart';
 import '../pimpinan/pimpinan_dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,7 +20,6 @@ class _LoginScreenState extends State {
   void _prosesLogin() async {
     setState(() => _isLoading = true);
 
-    // Ubah tulisan 'var' menjadi 'Map<String, dynamic>'
     Map<String, dynamic> response = await AuthService.login(
       _emailController.text,
       _passwordController.text,
@@ -133,7 +132,7 @@ class _LoginScreenState extends State {
                           243,
                           241,
                           241,
-                        ), // Warna aksen modern
+                        ),
                       ),
                       child: Text(
                         "Login",

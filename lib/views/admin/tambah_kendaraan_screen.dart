@@ -16,7 +16,6 @@ class _TambahKendaraanScreenState extends State<TambahKendaraanScreen> {
   final TextEditingController _merkController = TextEditingController();
   final TextEditingController _hargaController = TextEditingController();
 
-  // Menggunakan bytes alih-alih File untuk mendukung Flutter Web
   Uint8List? _imageBytes;
   String? _imageName;
 
@@ -29,7 +28,6 @@ class _TambahKendaraanScreenState extends State<TambahKendaraanScreen> {
       source: ImageSource.gallery,
     );
     if (pickedFile != null) {
-      // Membaca file sebagai bytes agar aman di Web
       final bytes = await pickedFile.readAsBytes();
       setState(() {
         _imageBytes = bytes;
@@ -62,7 +60,6 @@ class _TambahKendaraanScreenState extends State<TambahKendaraanScreen> {
       imageName: _imageName,
     );
 
-    // ignore: use_build_context_synchronously
     if (!mounted) return;
 
     setState(() => _isLoading = false);
@@ -147,7 +144,6 @@ class _TambahKendaraanScreenState extends State<TambahKendaraanScreen> {
                     style: BorderStyle.solid,
                   ),
                 ),
-                // Menggunakan Image.memory untuk membaca bytes
                 child: _imageBytes != null
                     ? ClipRRect(
                         borderRadius: BorderRadius.circular(20),

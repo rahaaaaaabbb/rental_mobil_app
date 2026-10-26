@@ -82,7 +82,7 @@ class _DetailScreenState extends State<DetailScreen> {
       tanggalKembali: tglKembaliFormat,
     );
 
-    // ignore: use_build_context_synchronously
+  
     if (!mounted) return;
 
     setState(() => _isLoading = false);

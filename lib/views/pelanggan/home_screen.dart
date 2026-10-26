@@ -17,19 +17,18 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<String> categories = ['Semua']; // Contoh tambahan kategori
+  final List<String> categories = ['Semua'];
   int selectedCategoryIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    // Background standar iOS (Abu-abu sangat terang)
+
     return Scaffold(
       backgroundColor: const Color(0xFFF5F5F7),
-      extendBodyBehindAppBar: true, // Membiarkan konten masuk ke bawah AppBar
+      extendBodyBehindAppBar: true, 
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: ClipRRect(
-          // Efek Kaca Buram (Glassmorphism) ala iOS
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
             child: AppBar(
@@ -77,14 +76,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        // Fisika memantul (Rubber-band) ala iOS
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 110), // Ruang untuk AppBar transparan
+            const SizedBox(height: 110),
 
             _buildModernHeroBanner()
                 .animate()
@@ -127,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
         margin: const EdgeInsets.symmetric(horizontal: 20),
         padding: const EdgeInsets.all(28),
         decoration: BoxDecoration(
-          color: const Color(0xFF1C1C1E), // Warna Dark Mode khas Apple
+          color: const Color(0xFF1C1C1E),
           borderRadius: BorderRadius.circular(32),
           boxShadow: [
             BoxShadow(
@@ -207,7 +205,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Kategori dengan efek pil modern
+
   Widget _buildCategoryPills() {
     return SizedBox(
       height: 40,
@@ -268,9 +266,9 @@ class _HomeScreenState extends State<HomeScreen> {
         return GridView.builder(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           shrinkWrap:
-              true, // Wajib jika GridView ada di dalam SingleChildScrollView
+              true, 
           physics:
-              const NeverScrollableScrollPhysics(), // Scroll diambil alih oleh parent
+              const NeverScrollableScrollPhysics(), 
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio:
@@ -291,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // Kartu Mobil bergaya App Store
+
   Widget _buildAppleCarCard(Kendaraan mobil) {
     return Container(
       decoration: BoxDecoration(

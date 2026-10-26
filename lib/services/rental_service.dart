@@ -6,7 +6,6 @@ import '../models/transaksi_model.dart';
 import 'dart:typed_data';
 
 class RentalService {
-  // Sesuaikan dengan alamat server lokal Anda (127.0.0.1 untuk Chrome, 10.0.2.2 untuk Emulator Android)
   static const String baseUrl = 'http://127.0.0.1/rental_api/api';
   static const String imageUrl = 'http://127.0.0.1/rental_api/uploads/';
 
@@ -79,7 +78,7 @@ class RentalService {
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'id_pembayaran':
-              idPembayaran, // Menggunakan id_pembayaran sesuai permintaan PHP
+              idPembayaran,
           'status_validasi': statusValidasi,
         }),
       );
@@ -89,7 +88,6 @@ class RentalService {
     }
   }
 
-  // Tambahkan fungsi baru ini di bawah fungsi No. 4
   // 4B. Fungsi Selesaikan Pesanan (Admin)
   static Future<Map<String, dynamic>> selesaikanPesanan(int idTransaksi) async {
     try {
@@ -109,8 +107,8 @@ class RentalService {
     required String platNomor,
     required String merk,
     required String hargaSewa,
-    Uint8List? imageBytes, // Ubah dari File? menjadi Uint8List?
-    String? imageName, // Tambahkan parameter untuk nama file
+    Uint8List? imageBytes,
+    String? imageName,
   }) async {
     try {
       var request = http.MultipartRequest(
@@ -121,7 +119,7 @@ class RentalService {
       request.fields['merk'] = merk;
       request.fields['harga_sewa'] = hargaSewa;
 
-      // Gunakan fromBytes agar mendukung Web dan Mobile
+
       if (imageBytes != null) {
         request.files.add(
           http.MultipartFile.fromBytes(
@@ -174,10 +172,8 @@ class RentalService {
         Uri.parse('$baseUrl/upload_pembayaran.php'),
       );
 
-      // Kirim ID Transaksi sebagai teks
       request.fields['id_transaksi'] = idTransaksi.toString();
 
-      // Kirim Gambar
       request.files.add(
         http.MultipartFile.fromBytes(
           'bukti_transfer',

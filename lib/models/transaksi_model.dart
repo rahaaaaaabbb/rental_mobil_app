@@ -1,5 +1,3 @@
-// File: lib/models/transaksi_model.dart
-
 class Transaksi {
   final int idTransaksi;
   final String namaPelanggan;
@@ -8,7 +6,7 @@ class Transaksi {
   final String tanggalKembali;
   final int totalBiaya;
   final String statusPesanan;
-  final int? idPembayaran; // Bisa null jika belum bayar
+  final int? idPembayaran; 
 
   Transaksi({
     required this.idTransaksi,

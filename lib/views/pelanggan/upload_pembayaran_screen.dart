@@ -62,7 +62,7 @@ class _UploadPembayaranScreenState extends State<UploadPembayaranScreen> {
           backgroundColor: Colors.green,
         ),
       );
-      Navigator.pop(context); // Kembali ke halaman sebelumnya
+      Navigator.pop(context);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

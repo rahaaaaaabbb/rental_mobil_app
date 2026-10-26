@@ -16,7 +16,7 @@ class DetailLayananScreen extends StatelessWidget {
           31,
           71,
           40,
-        ), // Warna hijau gelap
+        ), 
         title: Text(
           "Informasi Layanan",
           style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
@@ -148,7 +148,7 @@ class DetailLayananScreen extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      // Tambahkan logika url_launcher untuk buka WA di sini
+                    
                     },
                     icon: const Icon(Icons.chat),
                     label: const Text("WhatsApp"),
@@ -166,7 +166,7 @@ class DetailLayananScreen extends StatelessWidget {
                 Expanded(
                   child: ElevatedButton.icon(
                     onPressed: () {
-                      // Tambahkan logika url_launcher untuk buka IG di sini
+                     
                     },
                     icon: const Icon(Icons.camera_alt),
                     label: const Text("Instagram"),
@@ -182,14 +182,14 @@ class DetailLayananScreen extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 32), // Padding bawah
+            const SizedBox(height: 32), 
           ],
         ),
       ),
     );
   }
 
-  // Fungsi bantuan untuk membuat judul seksi
+ 
   Widget _buildSectionTitle(String title) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12.0, left: 4.0),
@@ -204,7 +204,7 @@ class DetailLayananScreen extends StatelessWidget {
     );
   }
 
-  // Fungsi bantuan untuk membuat layout kartu putih
+ 
   Widget _buildInfoCard({required Widget child}) {
     return Container(
       padding: const EdgeInsets.all(20),
@@ -223,7 +223,7 @@ class DetailLayananScreen extends StatelessWidget {
     );
   }
 
-  // Fungsi bantuan untuk membuat list langkah-langkah
+
   Widget _buildStepItem(IconData icon, String title, String description) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),

@@ -11,9 +11,8 @@ class PimpinanDashboard extends StatefulWidget {
   _PimpinanDashboardState createState() => _PimpinanDashboardState();
 }
 
-// Perbaikan: Menambahkan <PimpinanDashboard>
+
 class _PimpinanDashboardState extends State<PimpinanDashboard> {
-  // Perbaikan: Menambahkan <Map<String, dynamic>> yang sebelumnya menjadi 'Future>'
   late Future<Map<String, dynamic>> _futureLaporan;
 
   @override
@@ -51,7 +50,6 @@ class _PimpinanDashboardState extends State<PimpinanDashboard> {
             tooltip: 'Segarkan',
             onPressed: _muatLaporan,
           ),
-          // Tambahkan tombol logout di bawah tombol refresh:
           IconButton(
             icon: const Icon(Icons.logout, color: Colors.red),
             tooltip: 'Logout',
@@ -65,7 +63,6 @@ class _PimpinanDashboardState extends State<PimpinanDashboard> {
           ),
         ],
       ),
-      // Perbaikan: Menambahkan <Map<String, dynamic>>
       body: FutureBuilder<Map<String, dynamic>>(
         future: _futureLaporan,
         builder: (context, snapshot) {
@@ -86,7 +83,7 @@ class _PimpinanDashboardState extends State<PimpinanDashboard> {
           final int totalPendapatan = data['akumulasi_pendapatan'] ?? 0;
           final int jumlahTransaksi = data['jumlah_transaksi'] ?? 0;
 
-          // Perbaikan: Menambahkan <dynamic>
+
           final List<dynamic> listTransaksi = data['data_transaksi'] ?? [];
 
           return Column(
@@ -241,7 +238,6 @@ class _PimpinanDashboardState extends State<PimpinanDashboard> {
     );
   }
 
-  // Perbaikan: Menambahkan <String, dynamic> pada Map
   Widget _buildTransactionItem(Map<String, dynamic> item) {
     // SABUK PENGAMAN: Cek panjang teks sebelum dipotong
     String tglKembali = item['tanggal_kembali']?.toString() ?? '-';
@@ -294,7 +290,6 @@ class _PimpinanDashboardState extends State<PimpinanDashboard> {
                   ),
                 ),
                 const SizedBox(height: 4),
-                // MENGGUNAKAN VARIABEL YANG SUDAH AMAN
                 Text(
                   "Dikembalikan: $tglAman",
                   style: const TextStyle(color: Colors.grey, fontSize: 11),

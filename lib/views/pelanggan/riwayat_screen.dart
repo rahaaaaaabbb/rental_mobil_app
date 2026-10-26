@@ -73,7 +73,6 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
   }
 
   Widget _buildRiwayatCard(Transaksi trx) {
-    // Cek apakah pesanan ini masih harus dibayar
     bool butuhBayar = trx.statusPesanan == 'Menunggu Pembayaran';
 
     return Card(
@@ -127,7 +126,6 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
               ),
             ),
 
-            // Tombol Bayar HANYA muncul jika statusnya "Menunggu Pembayaran"
             if (butuhBayar) ...[
               const SizedBox(height: 16),
               SizedBox(
@@ -138,7 +136,6 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                     foregroundColor: Colors.white,
                   ),
                   onPressed: () {
-                    // Berpindah ke layar upload, dan merefresh daftar riwayat saat kembali
                     Navigator.push(
                       context,
                       MaterialPageRoute(
